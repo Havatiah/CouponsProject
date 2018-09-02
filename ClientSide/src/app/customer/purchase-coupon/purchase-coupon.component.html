@@ -1,0 +1,73 @@
+
+<table class="table table-fixed">
+
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          amount
+        </th>
+        <th>
+          type
+        </th>
+        <th>
+          price
+        </th>
+  
+        <th>
+          startDate
+        </th>
+        <th>
+          endDate
+        </th>
+        <th>
+          message
+        </th>
+        <th>
+          image
+        </th>
+        <th>
+          Purchase
+        </th>
+      </tr>
+  
+  
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let coupon of coupons; let i=index">
+        <td>{{coupon.id}}</td>
+        <td>{{coupon.title}}</td>
+        <td>{{coupon.amount}}</td>
+        <td>{{coupon.type}}</td>
+        <td>{{coupon.price}}</td>
+        <td>{{coupon.startDate | date}}</td>
+        <td>{{coupon.endDate | date}}</td>
+        <td>{{coupon.message}}</td>
+        <td><img [src]="coupon.image" width="50px" height="30px" onerror="this.src='../assets/CouponError.png'"></td>
+      <td>
+        <td>
+          <div class="row">
+            <a class="linkClass" (click)="success=[];error=[];purchaseCoupon(coupon.id,i)">
+              <span class="glyphicon glyphicon-shopping-cart" style="padding-right: 10px;"> </span>
+            </a>
+          </div>
+          <div class="row">
+            <div class="alert alert-success" *ngIf="success[i]">
+              <strong>Success!</strong>  
+            </div>
+            <div class="alert alert-danger" *ngIf="error[i]">
+              <strong>Error!</strong> {{error[i].error.internalMessage}}
+            </div>
+          </div>
+        </td>
+  
+      </tr>
+  
+    </tbody>
+  </table>

@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit()" #couponForm="ngForm" ngNativeValidate>
+  <fieldset>
+    <legend>Create Coupon:</legend>
+    
+    Title:
+    <br>
+    <input type="text" name="title" [(ngModel)]="newCoupon.title" required>
+    <br>
+    Amount:
+    <br>
+    <input type="number" name="amount" [(ngModel)]="newCoupon.amount" required>
+    <br>
+    Type:
+    <br>
+    <br>
+    <select [(ngModel)]="newCoupon.type" name="type" required type="text">
+      <option value = "RESTAURANTS">Restaurants</option>
+      <option value="ELECTRICITY">Electricity</option>
+      <option value="FOOD">Food</option>
+      <option value="HEALTH">Health</option>
+      <option value="SPORTS">Sports</option>
+      <option value="CAMPING">Camping</option>
+      <option value="TRAVELLING">Travelling</option>
+    </select>
+    <br> 
+    <br> 
+    Price:
+    <br>
+    <input type="number" name="price" [(ngModel)]="newCoupon.price" required>
+    <br>
+    StartDate:
+    <br>
+    <input type="date" name="startDate" [(ngModel)]="newCoupon.startDate" required>
+    <br>  
+    EndDate:
+    <br>
+    <input type="date" name="endDate" [(ngModel)]="newCoupon.endDate" required>
+    <br> 
+    Message:
+    <br>
+    <input type="text" name="message" [(ngModel)]="newCoupon.message" required>
+    <br> 
+    Image:
+    <br>
+    <input type="text" name="image" [(ngModel)]="newCoupon.image" required>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+    <div class="alert alert-success" *ngIf="success">
+        <strong>Success!</strong>  
+      </div>
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> {{error.error.internalMessage}}
+      </div>
+  </fieldset>
+</form>

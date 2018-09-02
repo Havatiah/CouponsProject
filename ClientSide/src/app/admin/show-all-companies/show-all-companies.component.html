@@ -1,0 +1,79 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Update a Company</h4>
+    </div>
+    <div class="modal-body">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" placeholder="Name" name="name" id="name"  [(ngModel)]="companyModel.name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" placeholder="Password" name="password" [(ngModel)]="companyModel.password" id="password" required>
+      </div>
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)]="companyModel.email" id="email" required>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <div *ngIf="isError" class ="alert alert-danger" >
+        <strong>Error!</strong> {{errorMessage}}
+      </div>
+        <button type="button" class="btn btn-primary" (click)="submitUpdate()">Submit</button>
+      
+      </div>
+  </ng-template>
+
+  <div *ngIf="error" class ="alert alert-danger" >
+      <strong>Error!</strong> {{error.error.internalmessage}}
+    </div>
+<table class="table table-fixed"*ngIf="isContent"> 
+
+    <thead>
+      <tr>
+      <th>
+        ID
+  </th>
+      <th>
+      Name
+    </th>
+    <th>
+      Password
+    </th>
+    <th>
+      Email
+    </th>
+    <th>
+        Actions
+      </th>
+      </tr>
+      
+      
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let company of companies">
+      <td>{{company.id}}</td>
+      <td>{{company.name}}</td>
+      <td>{{company.password}}</td>
+      <td>{{company.email}}</td>
+      <td>
+          <div class = "row">
+                <a class ="linkClass" (click)="deleteCompany(company.id)">
+                    <span class ="glyphicon glyphicon-remove" style ="padding-right: 10px;"> </span>
+                </a>
+    
+                <a class ="linkClass" (click) ="open(content, company)">
+                    <span class ="glyphicon glyphicon-refresh"></span>
+                </a>
+          </div>
+        </td>
+
+      </tr>
+  
+    </tbody>
+  </table>
+
+  

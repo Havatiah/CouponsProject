@@ -1,0 +1,108 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.bg{
+  height:60em;background-size:cover;width:auto;
+  background-image:url('/assets/bg.jpg');
+  background-position:50% 50%;  
+  overflow:hidden;
+}
+
+.navbar-default {
+    background-color: #ecf0f1;
+    opacity:70%;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+    color:black;
+}
+
+table{
+    table-layout: fixed;
+}
+
+.modal-backdrop.fade
+{
+  opacity: 0.5;
+}
+.modal-open .modal
+{
+    
+  opacity: 1;
+}
+
+
+
+
+
+td,th,tr{
+    text-align:center;
+}
+
+body { padding-top: 40px; }
+
+thead{
+    border: 2px solid white;
+   
+    border-spacing: 4px;
+}
+
+
+tbody{
+    border: 2px solid white;
+    border-collapse: separate;
+    border-spacing: 4px;
+}
+
+.modal {
+    text-align: center;
+    padding: 0!important;
+  }
+  
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    padding-top:50vh;
+  }
+
+.linkClass{
+    cursor:pointer;
+    cursor:hand;
+}
+
+/* Navigation link styles */
+.inNav a {
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #CFD8DC;
+    border-radius: 4px;
+  }
+  .inNav a:visited, a:link {
+    color: #607D8B;
+  }
+  .inNav a:hover {
+    color: #039be5;
+    background-color: #CFD8DC;
+  }
+  .inNav a.active {
+    color: #039be5;
+  }
+  
+  .inNav a {
+    cursor: pointer;
+    cursor: hand;
+  }
+
+
+/* everywhere else */
+ * {
+    font-family: Arial, Helvetica, sans-serif;
+}

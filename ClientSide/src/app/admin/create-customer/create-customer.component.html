@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" #customerForm="ngForm" ngNativeValidate>
+  <fieldset>
+    <legend>Create Customer:</legend>
+    
+    Customer name:
+    <br>
+    <input type="text" name="name" [(ngModel)]="newCustomer.name" required>
+    <br> Create a password:
+    <br>
+    <input type="text" name="password" [(ngModel)]="newCustomer.password" required>
+    <br>
+    <input type="submit" value="Submit">
+    <div class="alert alert-success" *ngIf="success">
+        <strong>Success!</strong>  
+      </div>
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> {{error.error.internalMessage}}
+      </div>
+  </fieldset>
+</form>

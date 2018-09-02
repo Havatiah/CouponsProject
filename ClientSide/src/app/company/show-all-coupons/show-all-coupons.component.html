@@ -1,0 +1,143 @@
+<ng-template #content let-c="close" let-d="dismiss"> 
+  <div class="modal-header">
+    <h4 class="modal-title">Update a Coupon</h4>
+  </div>
+  <div class="modal-body">
+  <div class="form-group">
+ 
+      <label for="title">Title</label>
+      <input type="text" class="form-control" placeholder="Title" name="title" id="title" [(ngModel)]="couponModel.title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="amount">amount</label>
+      <input type="number" class="form-control" placeholder="amount" name="amount" id="amount" [(ngModel)]="couponModel.amount"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="type">type</label>
+     
+      <select [(ngModel)]="type" name="type" required type="text">
+        <option value = "RESTAURANTS">Restaurants</option>
+        <option value="ELECTRICITY">Electricity</option>
+        <option value="FOOD">Food</option>
+        <option value="HEALTH">Health</option>
+        <option value="SPORTS">Sports</option>
+        <option value="CAMPING">Camping</option>
+        <option value="TRAVELLING">Travelling</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="price">price</label>
+      <input type="number" class="form-control" placeholder="price" name="price" id="price" [(ngModel)]="couponModel.price" required>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">startDate</label>
+      <input type="date" class="form-control" placeholder="startDate" name="startDate" [(ngModel)]="couponModel.startDate" id="startDate"
+        required>
+    </div>
+    
+
+    <div class="form-group">
+      <label for="endDate">endDate</label>
+      <input type="date" class="form-control" placeholder="endDate" name="endDate" id="endDate" [(ngModel)]="couponModel.endDate"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">message</label>
+      <input type="string" class="form-control" placeholder="message" name="message" id="message" [(ngModel)]="couponModel.message"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="image">image</label>
+      <input type="text" class="form-control" placeholder="image" name="image" id="image" [(ngModel)]="couponModel.image" required>
+    </div>
+  </div>
+  <div class="modal-footer">
+      
+    <div *ngIf="isError" class="alert alert-danger">
+      <strong>Error!</strong> {{error}}
+    </div>
+    <button type="button" class="btn btn-primary" (click)="submitUpdate()">Submit</button>
+
+  </div>
+
+
+
+</ng-template>
+
+
+<div *ngIf="error" class="alert alert-danger">
+    <strong>Error!</strong> {{error.error.internalMessage}}
+  </div>
+<table class="table table-fixed" *ngIf="isContent">
+
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        amount
+      </th>
+      <th>
+        type
+      </th>
+      <th>
+        price
+      </th>
+
+      <th>
+        startDate
+      </th>
+      <th>
+        endDate
+      </th>
+      <th>
+        message
+      </th>
+      <th>
+        image
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+
+
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let coupon of coupons">
+      <td>{{coupon.id}}</td>
+      <td>{{coupon.title}}</td>
+      <td>{{coupon.amount}}</td>
+      <td>{{coupon.type}}</td>
+      <td>{{coupon.price}}</td>
+      <td>{{coupon.startDate | date}}</td>
+      <td>{{coupon.endDate | date}}</td>
+      <td>{{coupon.message}}</td>
+      <td><img [src]="coupon.image" width="50px" height="30px" onerror="this.src='../assets/CouponError.png'"></td>
+      <td>
+        <div class="row">
+          <a class="linkClass" (click)="deleteCoupon(coupon.id)">
+            <span class="glyphicon glyphicon-remove" style="padding-right: 10px;"> </span>
+          </a>
+
+          <a class="linkClass" (click)="open(content, coupon)">
+            <span class="glyphicon glyphicon-refresh"></span>
+          </a>
+        </div>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

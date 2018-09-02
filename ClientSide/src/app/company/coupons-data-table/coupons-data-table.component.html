@@ -1,0 +1,11 @@
+<nav class ="inNav navbar-fixed" align="center">
+  <a [routerLinkActive]="['active']" [routerLink]="['show-all-coupons']">Show all coupons</a>
+<a [routerLinkActive]="['active']" [routerLink]="['coupons-by-type']">coupons-by-type</a>
+<a [routerLinkActive]="['active']" [routerLink]="['coupons-by-price']">coupons-by-price</a>
+<a [routerLinkActive]="['active']" [routerLink]="['coupons-by-date']">coupons-by-date</a>
+</nav>
+<br>
+
+<div class="jumbotron">
+  <router-outlet></router-outlet>
+<div>

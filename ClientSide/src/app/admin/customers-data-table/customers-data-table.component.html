@@ -1,0 +1,10 @@
+  <nav class ="inNav navbar-fixed" align="center">
+    <a [routerLinkActive]="['active']" [routerLink]="['show-all-customers']">Show all customers</a>
+  <a [routerLinkActive]="['active']" [routerLink]="['create-customer']">Create a customer</a>
+  </nav>
+  <br>
+
+  <div class="jumbotron">
+    <router-outlet></router-outlet>
+  <div>
+

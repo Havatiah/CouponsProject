@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" #companyForm="ngForm" ngNativeValidate>
+  <fieldset>
+    <legend>Create Company:</legend>
+    
+    Company name:
+    <br>
+    <input type="text" name="name" [(ngModel)]="newCompany.name" required>
+    <br> Create a password:
+    <br>
+    <input type="text" name="password" [(ngModel)]="newCompany.password" required>
+    <br> Email:
+    <br>
+    <input type="email" name="email" [(ngModel)]="newCompany.email" required>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+    <div class="alert alert-success" *ngIf="success">
+        <strong>Success!</strong>  
+      </div>
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Error!</strong> {{error.error.internalMessage}}
+      </div>
+  </fieldset>
+</form>
